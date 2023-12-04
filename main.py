@@ -34,3 +34,14 @@ if __name__ == '__main__':
     grid, parts = build_grid()
     print(grid)
     print(parts)
+    part_numbers = set()
+    for part in parts:
+        r = part[0]
+        c = part[1]
+        adj_cells = [(r - 1, c - 1), (r - 1, c), (r - 1, c + 1),
+                     (r, c - 1), (r, c + 1),
+                     (r + 1, c - 1), (r + 1, c), (r + 1, c + 1)]
+        for cell in adj_cells:
+            if cell in grid:
+                part_numbers.add(int(grid[cell]))
+    print(list(part_numbers))
