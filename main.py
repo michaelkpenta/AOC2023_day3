@@ -1,5 +1,4 @@
 
-
 def build_grid():
     matrix = {}
     parts_locations = []
@@ -28,20 +27,21 @@ def build_grid():
     return matrix, parts_locations
 
 
-
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     grid, parts = build_grid()
     print(grid)
     print(parts)
-    part_numbers = set()
+    part_numbers = []
     for part in parts:
         r = part[0]
         c = part[1]
         adj_cells = [(r - 1, c - 1), (r - 1, c), (r - 1, c + 1),
                      (r, c - 1), (r, c + 1),
                      (r + 1, c - 1), (r + 1, c), (r + 1, c + 1)]
+        nums = set()
         for cell in adj_cells:
             if cell in grid:
-                part_numbers.add(int(grid[cell]))
+                nums.add(int(grid[cell]))
+        if len(nums) > 0:
+            part_numbers.extend(list(nums))
     print(sum(list(part_numbers)))
