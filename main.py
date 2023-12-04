@@ -44,4 +44,4 @@ if __name__ == '__main__':
         for cell in adj_cells:
             if cell in grid:
                 part_numbers.add(int(grid[cell]))
-    print(list(part_numbers))
+    print(sum(list(part_numbers)))
